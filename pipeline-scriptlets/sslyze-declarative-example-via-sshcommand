@@ -1,0 +1,59 @@
+// launches sslyze via ssh on a remote-host using pre-defined python script
+// requires the corresponding python scripts
+pipeline {
+   agent any
+
+   stages {
+      stage('startSSLyze') {
+         steps {
+             script {
+                def remote = [:]
+                remote.name = 'ScanHost'
+                remote.host = '127.0.0.1'
+                remote.user = 'jenkinsuser'
+                remote.identityFile = '/var/lib/jenkins/jenkinsscriptlets/jenkinsuser_key'
+                remote.allowAnyHosts = true
+                def ret = sshCommand remote: remote, command: "/usr/bin/python scriptlets/runSSLyze.py --serverURL https://dev-portal.bi-sec.de"
+                print ret
+             }
+         }
+     }
+
+      stage('checkRunningSSLyze') {
+           steps {
+             script {
+                def remote = [:]
+                remote.name = 'ScanHost'
+                remote.host = '127.0.0.1'
+                remote.user = 'jenkinsuser'
+                remote.identityFile = '/var/lib/jenkins/jenkinsscriptlets/jenkinsuser_key'
+                remote.allowAnyHosts = true
+                sshCommand remote: remote, command: "/usr/bin/python scriptlets/getRunningTasks.py --searchTerm sslyze"
+             }
+           }
+      }
+      stage('getResultsSSLyze') {
+           steps {
+             script {
+                def remote = [:]
+                remote.name = 'ScanHost'
+                remote.host = '127.0.0.1'
+                remote.user = 'jenkinsuser'
+                remote.identityFile = '/var/lib/jenkins/jenkinsscriptlets/jenkinsuser_key'
+                remote.allowAnyHosts = true
+                def ret = sshCommand remote: remote, command: "/usr/bin/python scriptlets/parseSSLyzeXML.py --filepath dev-portal.bi-sec.de.xml"
+                if ( ret.contains("Recommendation: abort") == true) {
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                        print "Results: Not compliant with policy. Abort."
+                        error("Results: Not compliant with policy. Abort.")
+                    }
+                    
+                } else {
+                    print "Results: All fine."
+                }
+                
+             }
+           }
+      }      
+   }
+}

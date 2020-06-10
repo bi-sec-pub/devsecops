@@ -1,0 +1,22 @@
+   node {  
+      stage('custom0') {
+            sh '/var/lib/jenkins/workspace/lab_step-examples/custom0.sh'
+      }
+      stage('custom2') {
+            echo "Hello World."
+            def retVal = sh (script: '/var/lib/jenkins/workspace/lab_step-examples/custom2.sh', returnStdout:true)
+            print retVal
+      }
+        stage('custom-1') {
+            def retStatus = sh (script:'/var/lib/jenkins/workspace/lab_step-examples/custom-1.sh', returnStatus:true) 
+            print retStatus
+            if ( retStatus != 3) {
+                print "error"
+                 //error('Execution stoped due to error')
+            }
+        }
+        stage('custom0-2') {
+            sh '/var/lib/jenkins/workspace/lab_step-examples/custom0.sh'
+      }
+
+    }
