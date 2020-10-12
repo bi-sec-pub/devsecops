@@ -14,9 +14,9 @@ serverURL = serverURL.replace("http://", "")
 serverURL = serverURL.replace("https://", "")
 serverURL = serverURL.replace("/", "")
 
-executablePath = "/usr/local/bin/sslyze"
+executablePath = "/usr/bin/sslyze"
 executionCommand = "--regular"
-outputCommand = "--xml_out="
+outputCommand = "--json_out="
 outFilePath = "./"
 
-os.system(executablePath + " " + executionCommand + " " + serverURL + " " + outputCommand + "" + outFilePath + "/" + serverURL +".xml &")
+os.system(executablePath + " " + executionCommand + " " + serverURL + " " + outputCommand + "" + outFilePath + "/" + serverURL +".json &")
