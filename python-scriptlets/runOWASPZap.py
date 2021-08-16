@@ -14,8 +14,8 @@ currArgs = args.parse_args()
 
 target = currArgs.serverURL
 # Change to match the API key set in ZAP, or use None if the API key is disabled
-apiKey = 'wsfdsfgaeher'
-zapServerAPI = '127.0.0.1:9999'
+apiKey = 'lknfoui83z4uwlrg3l'
+zapServerAPI = '127.0.0.1:8080'
 zap = ZAPv2(apikey=apiKey, proxies={'http': 'http://' + zapServerAPI, 'https': 'http://' + zapServerAPI})
 
 print('Spidering target {}'.format(target))
@@ -27,7 +27,7 @@ try:
         print('Spider progress %: {}'.format(zap.spider.status(scanID)))
         time.sleep(1)
 except ValueError as e:
-    print e
+    print (e)
 print('Spider has completed!')
 # Prints the URLs the spider has crawled
 print('\n'.join(map(str, zap.spider.results(scanID))))
