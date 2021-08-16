@@ -1,0 +1,13 @@
+- hosts: all
+  become: yes
+  tasks:
+     - name: install apache2
+       apt: name=apache2 state=latest
+     - name: install jenkins
+       apt: name=jenkins state=latest
+     - name: install git
+       apt: name=git state=latest
+
+
+  vars:
+    ansible_ssh_private_key_file: /root/.ssh/localkey.pem
