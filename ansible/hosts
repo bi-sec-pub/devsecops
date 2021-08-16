@@ -1,0 +1,4 @@
+# Sample host file for lab environment
+[apache]
+127.0.0.1       ansible_user=admin
+#127.0.0.2      ansible_user=ec2-user
