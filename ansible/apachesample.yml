@@ -1,0 +1,41 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Set ServerTokens level to Production
+      lineinfile:
+         path: "/etc/apache2/conf-enabled/security.conf"
+         regexp: 'ServerTokens OS'
+         line: 'ServerTokens Prod'
+         backrefs: yes
+    - name: Set up TLS correctly
+      blockinfile:
+        dest: "/etc/apache2/mods-available/ssl.conf"
+        marker: "# {mark} ANSIBLE MANAGED BLOCK"
+        insertbefore: '</IfModule>'
+        block: |
+          SSLProtocol             all -SSLv3 -TLSv1 -TLSv1.1
+          SSLCipherSuite          ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA$
+          SSLHonorCipherOrder     on
+          SSLCompression          off
+          SSLSessionTickets       off
+          SSLUseStapling          on
+          SSLStaplingResponderTimeout 5
+          SSLStaplingReturnResponderErrors off
+          SSLStaplingCache        shmcb:/var/run/ocsp(128000)
+
+
+
+    - name: Remove icons/readme (delete file)
+      ansible.builtin.file:
+        path: /var/www/html/icons
+        state: absent
+
+
+
+    - name: restart service
+      service:
+         name: "apache2"
+         state: restarted
+         enabled: yes
+  vars:
+    ansible_ssh_private_key_file: /root/.ssh/localkey.pem
