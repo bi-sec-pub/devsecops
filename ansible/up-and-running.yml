@@ -1,0 +1,10 @@
+- hosts: all
+  become: yes
+  tasks:
+     - name: check running apache2
+       service: name=apache2 state=started
+     - name: check running jenkins
+       service: name=jenkins state=started
+
+  vars:
+    ansible_ssh_private_key_file: /root/.ssh/localkey.pem
