@@ -33,27 +33,27 @@ if os.path.isfile(filepath):
     countAlert = 0
     for entry in jsonContent:
         if entry["risk"].find("Critical") > -1:
-            print "Alarm: " + entry["alert"]
-            print "URL: " + entry["url"]
-            print "Param: " + entry["param"]
-            print "Attack: " + entry["attack"]
-            print "_____"
+            print ("Alarm: " + entry["alert"])
+            print ("URL: " + entry["url"])
+            print ("Param: " + entry["param"])
+            print ("Attack: " + entry["attack"])
+            print ("_____")
             pass
             countCritical += 1
         if entry["risk"].find("High") > -1:
-            print "Alarm: " + entry["alert"]
-            print "URL: " + entry["url"]
-            print "Param: " + entry["param"]
-            print "Attack: " + entry["attack"]
-            print "_____"
+            print ("Alarm: " + entry["alert"])
+            print ("URL: " + entry["url"])
+            print ("Param: " + entry["param"])
+            print ("Attack: " + entry["attack"])
+            print ("_____")
             pass
             countHigh += 1
         if entry["risk"].find("Medium") > -1:
-            print "Alarm: " + entry["alert"]
-            print "URL: " + entry["url"]
-            print "Param: " + entry["param"]
-            print "Attack: " + entry["attack"]
-            print "_____"
+            print ("Alarm: " + entry["alert"])
+            print ("URL: " + entry["url"])
+            print ("Param: " + entry["param"])
+            print ("Attack: " + entry["attack"])
+            print ("_____")
             pass
             countMedium += 1
         if entry["risk"].find("Low") > -1:
@@ -63,17 +63,16 @@ if os.path.isfile(filepath):
             pass
             countInformational += 1
         countAlert += 1
-    print "Number of Alerts: " + str(countAlert)
-    print "_____"
-    print "#### Summary of Findings ####"
-    print "Critical: " + str(countCritical)
-    print "High: " + str(countHigh)
-    print "Medium: " + str(countMedium)
-    print "Low: " + str(countLow)
-    print "Informational: " + str(countInformational)
+    print ("Number of Alerts: " + str(countAlert))
+    print ("_____")
+    print ("#### Summary of Findings ####")
+    print ("Critical: " + str(countCritical))
+    print ("High: " + str(countHigh))
+    print ("Medium: " + str(countMedium))
+    print ("Low: " + str(countLow))
+    print ("Informational: " + str(countInformational))
 
     if countCritical + countHigh + countMedium + countLow + countInformational < countAlert:
-        print "WARNING: Something went wrong counting and categorizing Alert criticality."
+        print ("WARNING: Something went wrong counting and categorizing Alert criticality.")
     if countCritical > maxCrit or countHigh > maxHigh or countMedium > maxMedium or countLow > maxLow:
-        print "Recommendation: abort"
-
+        print ("Recommendation: abort")
