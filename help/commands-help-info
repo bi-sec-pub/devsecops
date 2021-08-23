@@ -1,0 +1,39 @@
+- Terminal/Konsole ö?ffnen: bash [enter]
+- Bash Auto-Completion: [tab]
+
+Systemauslastung?
+- htop in der Konsole eingeben
+
+Text-Editor:
+- Nano
+-- Verlassen [strg + x]
+-- Suchen [strg + w]
+
+Tools:
+- zaproxy
+- sslscan
+- sslyze
+-- sslyze --regular 127.0.0.1
+- ffuf
+- sqlmap
+- nikto
+-- nikto -host http://127.0.0.1/pfad -Fomat XML -output /root/nikto/niktoout.xml
+- hydra
+- tesseract
+- ansible
+-- ansible-playbook /etc/ansible/up-and-running.yml
+- Lynis 
+-- lynis audit system
+
+Firefox:
+- Foxy-Proxy-Plugin ist vorkonfiguriert fü?r Burp und ZAP
+
+OpenSSL Zertifikatserzeugung:
+- openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apacheTN_ss.key -out /etc/ssl/certs/apacheTN_ss.crt
+
+Apache-Cmds:
+- a2ensite
+- a2dissite
+- a2enmod
+- a2dismod
+- service apache2 restart
