@@ -30,7 +30,7 @@ Tools:
 
 
 Firefox:
-- Foxy-Proxy-Plugin ist vorkonfiguriert fü?r Burp und ZAP
+- Foxy-Proxy-Plugin ist vorkonfiguriert für Burp und ZAP
 
 OpenSSL Zertifikatserzeugung:
 - openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apacheTN_ss.key -out /etc/ssl/certs/apacheTN_ss.crt
