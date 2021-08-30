@@ -10,8 +10,10 @@ Text-Editor:
 -- Suchen [strg + w]
 
 Tools:
-- burpsuite --config-file=/root/burpconfig_project.json
-- zaproxy -port 8080
+- burpsuite 
+-- burpsuite --config-file=/root/burpconfig_project.json
+- zaproxy 
+-- zaproxy -port 8080
 - sslscan
 - sslyze
 -- sslyze --regular 127.0.0.1
