@@ -10,20 +10,22 @@ Text-Editor:
 -- Suchen [strg + w]
 
 Tools:
-- zaproxy
+- burpsuite --config-file=/root/burpconfig_project.json
+- zaproxy -port 8080
 - sslscan
 - sslyze
 -- sslyze --regular 127.0.0.1
 - ffuf
 - sqlmap
 - nikto
--- nikto -host http://127.0.0.1/pfad -Fomat XML -output /root/nikto/niktoout.xml
+-- nikto -host http://127.0.0.1/pfad -Format XML -output /root/nikto/niktoout.xml
 - hydra
 - tesseract
 - ansible
 -- ansible-playbook /etc/ansible/up-and-running.yml
 - Lynis 
 -- lynis audit system
+
 
 Firefox:
 - Foxy-Proxy-Plugin ist vorkonfiguriert fü?r Burp und ZAP
