@@ -1,4 +1,4 @@
-# Autor: bi-sec GmbH, Christian Biehler
+# Autor: Christian Biehler, 2022-08-24
 # Content
 # _ Sample scriptlet to run OWASPzap via zapv2
 # _ Contains only the basic examples from the api specs
@@ -10,12 +10,14 @@ import argparse
 # The URL of the application to be tested
 args = argparse.ArgumentParser()
 args.add_argument("--serverURL", "-s", default=False, help="serverURL", required=True)
+args.add_argument("--outputPath", "-o", default="/root/zap/", help="outputPath", required=False)
 currArgs = args.parse_args()
 
 target = currArgs.serverURL
+outputPath = currArgs.outputPath
 # Change to match the API key set in ZAP, or use None if the API key is disabled
 apiKey = 'lknfoui83z4uwlrg3l'
-zapServerAPI = '127.0.0.1:8080'
+zapServerAPI = '127.0.0.1:8666'
 zap = ZAPv2(apikey=apiKey, proxies={'http': 'http://' + zapServerAPI, 'https': 'http://' + zapServerAPI})
 
 print('Spidering target {}'.format(target))
@@ -59,9 +61,12 @@ print('Passive Scan completed')
 # Print Passive scan results/alerts
 print('Hosts: {}'.format(', '.join(zap.core.hosts)))
 print('Alerts: ')
-newFileRunning = open("results_ZapPassiveScan.json", "w")
+newFileRunning = open(outputPath + "results_ZapPassiveScan.json", "w")
 newFileRunning.write(str(zap.core.alerts()))
 newFileRunning.close()
+newXMLReport = open (outputPath + "results_ZapPassiveScan.xml", "w")
+newXMLReport.write(zap.core.xmlreport())
+newXMLReport.close()
 pprint(zap.core.alerts())
 
 ## Active scan
@@ -77,7 +82,10 @@ print('Active Scan completed')
 # Print vulnerabilities found by the scanning
 print('Hosts: {}'.format(', '.join(zap.core.hosts)))
 print('Alerts: ')
-newFileRunning = open("results_ZapActiveScan.json", "w")
+newFileRunning = open(outputPath + "results_ZapActiveScan.json", "w")
 newFileRunning.write(str(zap.core.alerts()))
 newFileRunning.close()
+newXMLReport = open (outputPath + "results_ZapActiveScan.xml", "w")
+newXMLReport.write(zap.core.xmlreport())
+newXMLReport.close()
 pprint(zap.core.alerts(baseurl=target))
