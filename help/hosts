@@ -8,8 +8,8 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 3.72.241.189 lab.bi-sec.de
 3.72.241.189 lab.bi-sec.cloud
-3.72.36.71 labtn01.bi-sec.cloud
-3.72.88.8 labtn02.bi-sec.cloud
+18.185.149.77 labtn01.bi-sec.cloud
+18.185.149.77 labtn02.bi-sec.cloud
 3.79.98.28 labtn03.bi-sec.cloud
 3.79.98.28 labtn04.bi-sec.cloud
 3.79.98.28 labtn19.bi-sec.cloud
