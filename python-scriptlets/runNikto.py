@@ -16,5 +16,5 @@ outputCommand = "-output"
 fileformatCommand = "-Format XML"
 outFilePath = "/root/nikto/"
 
-os.system(executablePath + " " + executionCommand + " " + serverURL + " " + fileformatCommand + " " + outputCommand + " " + outFilePath + "results_nikto_" + filePath +".xml &")
+os.system(executablePath + " " + executionCommand + " " + serverURL + " " + fileformatCommand + " " + outputCommand + " " + outFilePath + "results_nikto_" + filePath +".xml ")
 exit()
