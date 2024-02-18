@@ -6,7 +6,17 @@
 ::1     localhost ip6-localhost ip6-loopback
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
-127.0.0.1 lab.bi-sec.de
-127.0.0.1 lab.bi-sec.cloud
-127.0.0.1 labtn01.bi-sec.cloud
-127.0.0.1 labtn02.bi-sec.cloud
+3.70.251.24 lab.bi-sec.de
+3.70.251.24 lab.bi-sec.cloud
+3.79.16.242 labtn01.bi-sec.cloud
+3.79.16.242 labtn02.bi-sec.cloud
+18.197.19.246 labtn03.bi-sec.cloud
+18.197.19.246 labtn04.bi-sec.cloud
+35.156.147.51 labtn05.bi-sec.cloud
+35.156.147.51 labtn06.bi-sec.cloud
+3.65.36.209 labtn07.bi-sec.cloud
+3.65.36.209 labtn08.bi-sec.cloud
+3.122.232.93 labtn09.bi-sec.cloud
+3.122.232.93 labtn10.bi-sec.cloud
+52.59.226.127 labtn11.bi-sec.cloud
+52.59.226.127 labtn12.bi-sec.cloud
