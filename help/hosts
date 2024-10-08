@@ -8,20 +8,20 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 18.195.52.85 lab.bi-sec.de
 18.195.52.85 lab.bi-sec.cloud
-18.199.106.162 labtn01.bi-sec.cloud
-18.199.106.162 labtn02.bi-sec.cloud
-18.193.222.67 labtn03.bi-sec.cloud
-18.193.222.67 labtn04.bi-sec.cloud
-3.78.243.24 labtn05.bi-sec.cloud
-3.78.243.24 labtn06.bi-sec.cloud
-18.195.35.255 labtn07.bi-sec.cloud
-18.195.35.255 labtn08.bi-sec.cloud
-18.198.203.71 labtn09.bi-sec.cloud
-18.198.203.71 labtn10.bi-sec.cloud
-3.124.11.35 labtn11.bi-sec.cloud
-3.124.11.35 labtn12.bi-sec.cloud
-35.157.73.161 labtn13.bi-sec.cloud
-35.157.73.161 labtn14.bi-sec.cloud
-3.78.243.24 labtn15.bi-sec.cloud
+3.79.33.159 labtn01.bi-sec.cloud
+3.79.33.159 labtn02.bi-sec.cloud
+18.156.34.228 labtn03.bi-sec.cloud
+18.156.34.228 labtn04.bi-sec.cloud
+3.79.190.48 labtn05.bi-sec.cloud
+3.79.190.48 labtn06.bi-sec.cloud
+18.193.75.127 labtn07.bi-sec.cloud
+18.193.75.127 labtn08.bi-sec.cloud
+3.74.46.114 labtn09.bi-sec.cloud
+3.74.46.114 labtn10.bi-sec.cloud
+54.93.34.43 labtn11.bi-sec.cloud
+54.93.34.43 labtn12.bi-sec.cloud
+18.198.55.213 labtn13.bi-sec.cloud
+18.198.55.213 labtn14.bi-sec.cloud
+18.193.75.127 labtn15.bi-sec.cloud
 
 
